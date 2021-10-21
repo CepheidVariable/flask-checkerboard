@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: grey;
+}
+h1{
+    text-align: center;
+    margin: 2em 0 1em 0;
+}
+#wrap{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+#grid_container{
+    display: grid;
+    border: solid .25em black;
+}
+.tile{
+    width: 6em;
+    height: 6em;
+}
