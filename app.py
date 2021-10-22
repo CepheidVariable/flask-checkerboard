@@ -3,12 +3,6 @@ import random
 
 app = Flask(__name__)
 
-def rand_coord_value():
-    return round(random.random()*(20-1) + 1)
-
-def rand_color_value():
-    return round(random.random()*255 - 0)
-
 @app.errorhandler(Exception)
 def errorhandler(err):
     app.logger.exception(err)
@@ -25,6 +19,9 @@ def gen_checkerboard(x= 8, y= 8, color1= "red", color2= "black"):
 @app.route('/r')
 def random_board():
 
+    #random coordinate for x,y
+    c = lambda : round(random.random()*(20-1) + 1)
+
     #random rgb sub value (i.e. rgb(r,r,r))
     r = lambda : (round(random.random()*255 - 0))
 
@@ -32,7 +29,7 @@ def random_board():
     color1 = f"rgb({r()}, {r()}, {r()})"
     color2 = f"rgb({r()}, {r()}, {r()})"
 
-    return render_template("index.html", x= rand_coord_value(), y= rand_coord_value(), color1= color1, color2= color2)
+    return render_template("index.html", x= c(), y= c(), color1= color1, color2= color2)
 
 
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
