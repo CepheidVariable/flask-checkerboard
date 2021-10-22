@@ -26,13 +26,13 @@ def gen_checkerboard(x= 8, y= 8, color1= "red", color2= "black"):
 def random_board():
 
     #random numbers to create two sets of rgb values
-    rand_num_pool = []
+    rgb_values = []
     for i in range(6):      
-        rand_num_pool.append(rand_color_value())
+        rgb_values.append(rand_color_value())
 
     #generate string to pass as CSS background-color property
-    color1 = f"rgb({','.join(str(x) for x in rand_num_pool[:3])})"
-    color2 = f"rgb({','.join(str(x) for x in rand_num_pool[-3:])})"
+    color1 = f"rgb({','.join(str(x) for x in rgb_values[:3])})"
+    color2 = f"rgb({','.join(str(x) for x in rgb_values[-3:])})"
 
     return render_template("index.html", x= rand_coord_value(), y= rand_coord_value(), color1= color1, color2= color2)
 
